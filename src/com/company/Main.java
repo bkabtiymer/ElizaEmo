@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 	Raven feelings= new Raven();
+	RavenInvoice invoice= new RavenInvoice();
 	Scanner input= new Scanner(System.in);
         ArrayList<String> chatHistory= new ArrayList<>();//created an arrayList to record chat history
         String greeting= "Good Afternoon!";
@@ -40,11 +41,20 @@ public class Main {
             }
 
         }
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n-----------------------------------------------------------");
         System.out.println(" Summary of Chat");
         for (String printOut: chatHistory)//for-loop to collect all values for chatHistory
         {
             System.out.println(printOut);//print-out conversation between Ravena and user.
         }
+        System.out.println("\n-----------------------------------------------------------");
+        System.out.println("Would you like an Invoice? (y/n)");
+        String answerRepo= input.nextLine();
+         if (answerRepo.equalsIgnoreCase("y")){
+             invoice.calcTotal(feelings.counter2);
+             invoice.description(true);
+         }else{
+             System.out.println("Thank you for visiting!");
+         }
     }
 }

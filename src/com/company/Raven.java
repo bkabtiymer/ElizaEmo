@@ -14,7 +14,8 @@ public class Raven {
     String[] negative = {"bad", "sad", "tired", "angry", "anxious", "hungry", "moody", "afraid", "disappointed", "mad", "help"};
     //Place a counter to record every positive and negative response
     int counterPos = 0, counterNeg = 0;//Starts the counter at zero
-
+    int counter2=0;
+    RavenInvoice invoice=new RavenInvoice();
     public String addWords(String str) {
         String words[] = str.split(" ");//Splits user response to be recognized individually by words
         String addWd = " ";
@@ -58,11 +59,14 @@ public class Raven {
         if (counterPos > counterNeg)//if the sum of positive counter is greater than sum of Negative counter
         {
             response = responsePos();//response variable will output a set of pre-defined responses from the responsePos method
+            counter2++;
         } else if (counterPos == counterNeg) {
             response = "Meh.";
+            counter2++;
         } else if (counterPos < counterNeg)//if the negative counter is higher
         {
             response = responseNeg();
+            counter2++;
         }
         return response;
     }
